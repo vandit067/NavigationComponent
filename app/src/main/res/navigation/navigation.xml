@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/screen1Fragment">
+
+    <fragment
+        android:id="@+id/screen1Fragment"
+        android:name="com.sample.navigationcomponent.Screen1Fragment"
+        android:label="Screen 1"
+        tools:layout="@layout/fragment_screen1">
+        <action
+            android:id="@+id/action_screen1Fragment_to_screen2Fragment"
+            app:destination="@id/screen2Fragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/screen1Fragment" />
+        <action
+            android:id="@+id/action_screen1Fragment_to_screen4Fragment"
+            app:destination="@id/screen4Fragment"
+            app:popUpTo="@id/screen1Fragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/screen2Fragment"
+        android:name="com.sample.navigationcomponent.Screen2Fragment"
+        android:label="Screen 2"
+        tools:layout="@layout/fragment_screen2" >
+        <action
+            android:id="@+id/action_screen2Fragment_to_screen3Frgament"
+            app:destination="@id/screen3Frgament"
+            app:popUpTo="@id/screen2Fragment" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="Sample Arg Data"/>
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    </fragment>
+    <activity
+        android:id="@+id/main2Activity"
+        android:name="com.sample.navigationcomponent.Main2Activity"
+        android:label="Second Activity"
+        tools:layout="@layout/activity_main2" />
+    <fragment
+        android:id="@+id/screen3Frgament"
+        android:name="com.sample.navigationcomponent.Screen3Fragment"
+        android:label="Screen 3"
+        tools:layout="@layout/fragment_screen3">
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    </fragment>
+    <fragment
+        android:id="@+id/screen4Fragment"
+        android:name="com.sample.navigationcomponent.Screen4Fragment"
+        android:label="fragment_screen4"
+        tools:layout="@layout/fragment_screen4" >
+        <action
+            android:id="@+id/action_screen4Fragment_to_main2Activity"
+            app:destination="@id/main2Activity"
+            app:popUpTo="@id/screen4Fragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+</navigation>
